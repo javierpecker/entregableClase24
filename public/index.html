@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
+    <title>My app productos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+
+<body>
+<h1>INGRESO DE PRODUCTOS</h1>
+<!-- <form action="/api/productos/guardar" method="post"> -->
+  <form onsubmit = "return sendData(this)" >
+  <ul>
+    <li>
+      <label for="name">Title:</label>
+      <input 
+      type='text'
+      id='title'
+      name='title'
+      class='form-control'
+      placeholder='Producto'
+      aria-label='Producto'
+      required
+      />
+    </div>
+    <div class="form-group">
+    </li>
+    <li>
+      <label for="name">Price:</label>
+      <input 
+      type='number'
+      id='price'
+      name='price'
+      class='form-control'
+      placeholder='$'
+      aria-label='Precio'
+      required
+      />
+    </li>
+    <li>
+      <label for="name">Thumbnail:</label>
+      <input
+        type='text'
+        id='thumbnail'
+        name='thumbnail'
+        class='form-control'
+        placeholder='Image URL'
+        required
+      />
+    </li>
+    <li class="btn btn-default">
+      <button type="submit" class="btn btn-default">Guardar</button>
+    </li>
+  </ul>
+</form>
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <td>Producto</td>
+          <td>Precio</td>
+          <td>Thumbnail</td>
+      </tr>
+  </thead>
+</table>
+<table class="table table-striped">
+  <tbody 
+  id="lista">
+  </tbody>
+</table>
+</div>
+</div></div>
+<div class="chatContainer">
+    <form id="chatform">
+      <div class='form-group'>
+        <label for='email'>Email</label>
+        <input class='form-control' type='email' name='email' id='mail' required>
+    </div>
+    <div class='form-group'>
+        <label for='nombre'>Nombre</label>
+        <input class='form-control' type='text' name='nombre' id='nombre' required>
+    </div>
+    <div class='form-group'>
+        <label for='apellido'>Apellido</label>
+        <input class='form-control' type='text' name='apellido' id='apellido' required>
+    </div>
+    <div class='form-group'>
+        <label for='alias'>Alias</label>
+        <input class='form-control' type='text' name='alias' id='alias' required>
+    </div>
+    <div class='form-group'>
+        <label for='edad'>Edad</label>
+        <input class='form-control' type='number' name='edad' id='edad' required>
+    </div>
+    <div class='form-group'>
+        <label for='url'>URL</label>
+        <input class='form-control' type='text' name='avatar' id='url' required>
+    </div>
+    <div class='form-group'>
+        <label for='mensaje'>Mensaje</label>
+        <input class='form-control' type='text' name='mensaje' id='msg' required>
+    </div>
+    <div class='mt-2'>
+    </input>
+  </label>
+  <button 
+  type="submit" 
+  class="btn btn-primary button">Send</button>
+    </div>
+      <!-- <li>
+        <label>Mensaje
+            <input 
+            id="msg" 
+            type="text" 
+            placeholder="Enter Message" 
+            required autocomplete="off" />
+        </label>
+      </li>
+        <label>Email
+            <input 
+            id="mail" 
+            type="email"
+            placeholder="email">
+          </input>
+        </label>
+        <button 
+        type="submit" 
+        class="btn btn-primary button">Send</button>
+        <li>
+        </li>
+        <li>
+        </li> -->
+    </form>
+    <div 
+    class="chat" 
+    id="chat"></div>
+</div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="main.js"></script> 
+</body>
+</html>
