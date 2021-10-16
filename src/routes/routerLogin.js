@@ -1,7 +1,12 @@
-//import { Router, req, Response } from 'express';
+import { Router, request, Response } from 'express';
 import express from 'express';
-import { publicPath } from '../../src/index';
+import cookieParser from 'cookie-parser'
 import path from 'path';
+import { publicPath } from "../index";
+
+
+
+const app = express();
 
 
 const routerLogin = express.Router();
@@ -9,34 +14,35 @@ const usuarios = [
 	{ nombre: 'admin', password: '1234' },
 ];
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 
 routerLogin.get('/', (req, res) => {
+    console.log('esta el usuario?',req.session.nombre)
 	if (req.session.nombre) {
-	  res.redirect('/datos');
-	} else {
-	  res.redirect('/login');
-	}
-});
+        res.redirect('/datos');
+      } else {
+        res.redirect('/login');
+      }
+  });
 
 /* --------- LOGIN ---------- */
 routerLogin.get('/login', (req, res) => {
-    console.log(`${publicPath  }/login.html`)
 	res.sendFile(publicPath + '/login.html');
 });
 
 routerLogin.post('/login', (req, res) => {
 	const { nombre, password } = req.body;
-    console.log(nombre);
-    console.log(password);
-
 	const credencialesOk = usuarios.filter(
 	  (usuario) => usuario.nombre === nombre && usuario.password === password
 	).length;
 	if (credencialesOk) {
-      //console.log()
-	//   req.session.nombre = nombre;
-	//   req.session.contador = 0;
+	  req.session.nombre = nombre;
+	  req.session.contador = 0;
 	  res.redirect('/');
+      console.log(req.session)
 	} else {
 	  res.render('login-error', {});
 	}
@@ -66,7 +72,8 @@ routerLogin.post('/register', (req, res) => {
 
 routerLogin.get('/datos', (req, res) => {
 	if (req.session.nombre) {
-	  req.session.contador =+ 1;
+	  req.session.contador ++;
+      console.log(req.session.contador)
 	  res.render('datos', {
 		datos: usuarios.find((usuario) => usuario.nombre == req.session.nombre),
 		contador: req.session.contador,

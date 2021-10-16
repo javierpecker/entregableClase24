@@ -10,46 +10,72 @@
 </div>
 
 <body>
-    <main class='container'>
-        <h1>Desafío Clase 24</h1>
-        <h2 class='mt-4'>Centro de Mensajes</h2>
-        <form class="form" action="/index" method="post" role="form" autocomplete="off">
-            <div class='form-group'>
-                <label for='email'>Email</label>
-                <input class='form-control' type='email' name='email' id='email' required>
-            </div>
-            <div class='form-group'>
-                <label for='nombre'>Nombre</label>
-                <input class='form-control' type='text' name='nombre' id='nombre' required>
-            </div>
-            <div class='form-group'>
-                <label for='apellido'>Apellido</label>
-                <input class='form-control' type='text' name='apellido' id='apellido' required>
-            </div>
-            <div class='form-group'>
-                <label for='alias'>Alias</label>
-                <input class='form-control' type='text' name='alias' id='alias' required>
-            </div>
-            <div class='form-group'>
-                <label for='edad'>Edad</label>
-                <input class='form-control' type='number' name='edad' id='edad' required>
-            </div>
-            <div class='form-group'>
-                <label for='url'>URL</label>
-                <input class='form-control' type='text' name='avatar' id='avatar' required>
-            </div>
-            <div class='form-group'>
-                <label for='mensaje'>Mensaje</label>
-                <input class='form-control' type='mensaje' name='mensaje' id='mensaje' required>
-            </div>
-            <div class='mt-2'>
-                <input type='submit' class='btn btn-warning'> 
-            </div>
-        </form>
-        
-        <div class="text-left">
-            <button class="btn btn-success my-3" onclick="location.href = '/login'">Ir a Login</button>
-        </div>
-        
-    </main>
+    <div class="chatContainer">
+    <form id="chatform">
+      <div class='form-group'>
+        <label for='email'>Email</label>
+        <input class='form-control' type='email' name='email' id='mail' required>
+    </div>
+    <div class='form-group'>
+        <label for='nombre'>Nombre</label>
+        <input class='form-control' type='text' name='nombre' id='nombre' required>
+    </div>
+    <div class='form-group'>
+        <label for='apellido'>Apellido</label>
+        <input class='form-control' type='text' name='apellido' id='apellido' required>
+    </div>
+    <div class='form-group'>
+        <label for='alias'>Alias</label>
+        <input class='form-control' type='text' name='alias' id='alias' required>
+    </div>
+    <div class='form-group'>
+        <label for='edad'>Edad</label>
+        <input class='form-control' type='number' name='edad' id='edad' required>
+    </div>
+    <div class='form-group'>
+        <label for='url'>URL</label>
+        <input class='form-control' type='text' name='avatar' id='url' required>
+    </div>
+    <div class='form-group'>
+        <label for='mensaje'>Mensaje</label>
+        <input class='form-control' type='text' name='mensaje' id='msg' required>
+    </div>
+    <div class='mt-2'>
+    </input>
+  </label>
+  <button 
+  type="submit" 
+  class="btn btn-primary button">Send</button>
+    </div>
+      <!-- <li>
+        <label>Mensaje
+            <input 
+            id="msg" 
+            type="text" 
+            placeholder="Enter Message" 
+            required autocomplete="off" />
+        </label>
+      </li>
+        <label>Email
+            <input 
+            id="mail" 
+            type="email"
+            placeholder="email">
+          </input>
+        </label>
+        <button 
+        type="submit" 
+        class="btn btn-primary button">Send</button>
+        <li>
+        </li>
+        <li>
+        </li> -->
+    </form>
+    <div 
+    class="chat" 
+    id="chat"></div>
+</div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="main.js"></script>
 </body>

@@ -1,9 +1,10 @@
 import express, { application } from 'express';
+import session from 'express-session'
 import path from 'path';
 import handlebars from 'express-handlebars';
 import cookieParser from 'cookie-parser'
-import session from 'express-session'
 import * as http from 'http';
+
 import routerRead from './routes/routerProduct';
 import routerLogin from './routes/routerLogin';
 import { dbConnection } from './models/mensajesDB';
@@ -45,17 +46,18 @@ app.use(cookieParser());
 app.use(express.static(publicPath));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', routerRead);
-app.use('/', routerLogin)
 app.use(
   session({
-    secret: 'idkrejjr32o42j34kldjdk34l42j3ko34',
+    secret: '1234',
     resave: true,
     saveUninitialized: true,
     cookie: {
-      maxAge: 60000,
+      maxAge: 150000,
     },
   })
 );
+app.use('/api', routerRead);
+app.use('/', routerLogin);
+
 
 

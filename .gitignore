@@ -3,3 +3,5 @@ node_modules/
 02-typescript/
 babel/
 baseTypeScript/
+dist/
+.env
